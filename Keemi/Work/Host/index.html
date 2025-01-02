@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with LLaMA</title>
+</head>
+<body>
+    <h1>Chat with LLaMA</h1>
+    <textarea id="prompt" rows="5" cols="50" placeholder="Enter your question here"></textarea><br>
+    <button id="submit">Submit</button>
+    <h3>Response:</h3>
+    <div id="response" style="white-space: pre-wrap;"></div>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', async function () {
+            const prompt = document.getElementById('prompt').value;
+            const responseDiv = document.getElementById('response');
+            responseDiv.textContent = "Loading...";
+
+            try {
+                const response = await fetch("http://127.0.0.1:5000/generate", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ prompt }),
+                });
+
+                if (!response.ok) {
+                    throw new Error("HTTP error! Status: " + response.status);
+                }
+
+                const data = await response.json();
+                responseDiv.textContent = data.response;
+            } catch (error) {
+                console.error("Error:", error);
+                responseDiv.textContent = "Error: Unable to get a response. Check the console for details.";
+            }
+        });
+    </script>
+</body>
+</html>

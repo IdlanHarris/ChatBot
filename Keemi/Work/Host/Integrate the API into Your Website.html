@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLaMA Integration</title>
+</head>
+<body>
+    <h1>Ask thse LLaMA!</h1>
+    <textarea id="prompt" placeholder="Enter your question here"></textarea><br>
+    <button onclick="sendPrompt()">Send</button>
+    <p><strong>Response:</strong></p>
+    <p id="response"></p>
+
+    <script>
+        async function sendPrompt() {
+            const prompt = document.getElementById("prompt").value;
+            const responseElement = document.getElementById("response");
+
+            const response = await fetch("http://127.0.0.1:5000/generate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ prompt }),
+            });
+
+            const data = await response.json();
+            responseElement.textContent = data.response;
+        }
+    </script>
+</body>
+</html>
