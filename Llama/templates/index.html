@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Llama</title>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="mySidebar">
+    <div id="sidebartn">
+        <a href="javascript:void(0)" class="closebtn" onclick="w3_close()">☰</a>
+   
+     <div id="sidebarbtn2">
+        <button class="icon-btn searchbtn">
+            <i class="fa-solid fa-magnifying-glass"></i> 
+        </button>
+        <button class="icon-btn newchatbtn">
+            <i class="fa-solid fa-plus"></i> 
+        </button>
+     </div>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div id="main">
+    <span id="openNav" onclick="w3_open()">☰</span>
+    
+    <img src="{{ url_for('static', filename='company logo.png') }}" alt="Company Logo">
+
+    <h1>What Can I Help With?</h1>
+    <form class="card-container" action="/process" method="POST" enctype="multipart/form-data">
+        <label class="icon-btn">
+            <i class="fa-solid fa-paperclip"></i>
+            <input type="file" name="file">
+        </label>
+        
+        <textarea name="textInput" placeholder="What is lemao?" required></textarea>
+        <button type="button" class="icon-btn" onclick="processWithAI(event)">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </form>
+
+   <!-- Chat container -->
+<div id="chatContainer" class="card-container" style="display:none;">
+    <!-- User message section -->
+    <div id="userMessage" class="chatMessage userMessage"></div>
+    <!-- AI response section -->
+    <div id="aiResponse" class="chatMessage aiResponse" style="display:none;">
+        <p id="responseText"></p>
+    </div>
+</div>
+
+
+    <div class="featuresbtn">
+        <button class="feature-btn" onclick="summarizeReport()">
+            <i class="fa-solid fa-file-alt"></i> <span>Summarize Report</span>
+        </button>
+        <button class="feature-btn" onclick="performCalculations()">
+            <i class="fa-solid fa-calculator"></i> <span>Calculations</span>
+        </button>
+        <button class="feature-btn" onclick="paraphraseText()">
+            <i class="fa-solid fa-pen"></i> <span>Paraphrase</span>
+        </button>
+        <button class="feature-btn" onclick="analyzeReport()">
+            <i class="fa-solid fa-chart-line"></i> <span>Analyze Report</span>
+        </button>
+    </div>
+
+    <div id="imagePreviewContainer"></div> <!-- Container for image preview -->
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

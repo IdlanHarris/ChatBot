@@ -1,0 +1,264 @@
+
+
+/* Add font import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+
+
+/* Body */
+body {
+    background: hsla(59, 86%, 68%, 1);
+
+background: linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#f4f269", endColorstr="#5cb270", GradientType=1 );
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: white;
+    font-family: Outfit;
+}
+
+/* Sidebar */
+#mySidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: width 0.3s ease;
+    border-right: none;
+}
+
+#main {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+#openNav {
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    cursor: pointer;
+    
+}
+
+#sidebartn {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+    top: 20px;
+}
+
+#sidebartn a {
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+#sidebarbtn2 {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    gap: 30px;
+    color: white;
+}
+
+#sidebarbtn2 .icon-btn i {
+    font-size: 30px;
+    color: white;
+}
+
+/* Textarea */
+textarea {
+    padding: 8px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    flex: 1;
+    width: 100%;
+    resize: none;
+    overflow: visible;
+    word-spacing: 1.5%;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+/* Card Container */
+
+
+/* Icon Button */
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+}
+
+.icon-btn:hover {
+    color: #0056b3;
+}
+
+.icon-btn input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Features Button Container */
+.featuresbtn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Feature Button */
+.feature-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 200px;
+    transition: background-color 0.3s ease;
+    font-family: Outfit;
+}
+
+.feature-btn:hover {
+    background-color: #333;
+}
+
+/* Icon Size */
+.feature-btn i {
+    font-size: 18px;
+}
+
+/* Feature Button Text */
+.feature-btn span {
+    font-size: 16px;
+    white-space: nowrap;
+    
+}
+
+/* Icon Colors */
+.feature-btn .fa-file-alt {
+    color: #4CAF50; /* Green for summarize report */
+}
+
+.feature-btn .fa-calculator {
+    color: #FF9800; /* Orange for calculations */
+}
+
+.feature-btn .fa-pen {
+    color: #2196F3; /* Blue for paraphrase */
+}
+
+.feature-btn .fa-chart-line {
+    color: #FFC107; /* Yellow for analyze report */
+}
+
+#main img {
+    display: block; /* Centers the image horizontally within its parent */
+    margin: 0 auto; /* Ensures it remains in the center */
+    position: relative; /* To respect the flow and attributes of #main */
+    top: 20px; /* Adjusts the position slightly to match the layout */
+    max-width: 200px; /* Ensures the logo is appropriately sized */
+    height: auto; /* Maintains aspect ratio */
+}
+
+
+
+#aiResponse {
+    display: none;
+}
+
+/* Chat Container */
+#chatContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+/* Chat Messages */
+.chatMessage {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 600px;
+    gap: 10px;
+    margin: 0 auto;
+
+}
+
+/* User Message Style */
+.userMessage {
+    color: black;
+    align-self: flex-start; /* Align the message to the left */
+    word-wrap: break-word;
+}
+
+/* AI Response Style */
+.aiResponse {
+    background-color: #e0e0e0; /* Light background for distinction */
+    color: black; /* Text color */
+    align-self: flex-end; /* Align the response to the right */
+    word-wrap: break-word; /* Ensure text wraps properly */
+    padding: 10px 15px; /* Add padding for better readability */
+    border-radius: 10px; /* Rounded corners for a clean look */
+    max-width: 80%; /* Limit width to 80% of the container */
+    margin: 10px; /* Add margin for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 16px; /* Adjust font size for readability */
+    overflow-wrap: break-word; /* Handle long words without breaking layout */
+    font-family: Outfit;
+    /*display: inline-block;  Ensure it remains a block element with width constraints */
+}
+    
+.card-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    height: 75px;
+}
