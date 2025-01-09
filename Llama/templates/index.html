@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="../static/index.css">
     <title>Llama</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
   <div id="main">
     <span id="openNav" onclick="w3_open()">☰</span>
     
-    <img src="{{ url_for('static', filename='company logo.png') }}" alt="Company Logo">
+    <img src="../static/company logo.png" alt="Company Logo">
 
     <h1>What Can I Help With?</h1>
     <form class="card-container" action="/process" method="POST" enctype="multipart/form-data">
@@ -71,6 +71,6 @@
 
     <div id="imagePreviewContainer"></div> <!-- Container for image preview -->
 
-    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="../static/index.js"></script>
 </body>
 </html>
